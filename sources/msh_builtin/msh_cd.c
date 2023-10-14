@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:12:33 by haekang           #+#    #+#             */
-/*   Updated: 2023/10/14 22:14:21 by haekang          ###   ########.fr       */
+/*   Updated: 2023/10/14 22:29:18 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,19 @@ static void	msh_pwd_oldpwd(t_env *env)
 {
 	t_env	*pwd;
 	t_env	*old_pwd;
+	char	*cur_path;
 
 	pwd = msh_env_get_node(env, "PWD");
 	old_pwd = msh_env_get_node(env, "OLDPWD");
+	cur_path = getcwd(NULL, 0);
+	if (cur_path == NULL)
+	{
+		printf("getcwd error\n");
+		return ;
+	}
 	free(old_pwd->value);
 	old_pwd->value = pwd->value;
-	pwd->value = getcwd(NULL, 0);
-	if (pwd->value == NULL)
-		printf("getcwd error\n");
+	pwd->value = cur_path;
 }
 
 static void	msh_cd_home(t_env *env)
