@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jho <jho@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:02:22 by jho               #+#    #+#             */
-/*   Updated: 2023/10/12 18:33:23 by jho              ###   ########.fr       */
+/*   Updated: 2023/10/14 21:24:00 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,12 @@ t_env	*msh_env_last_node(t_env *list);
 char	*msh_env_parse_key(char *envp);
 char	*msh_env_parse_value(char *envp);
 char	*msh_env_get_value(t_env *env, char *key);
+t_env	*msh_env_get_node(t_env *env, char *key);
+// builtin
+void	msh_env(t_env *env);
+void	msh_unset(t_env *env, char *key);
+void	msh_pwd(void);
+void	msh_cd(char **cmd, t_env *env);
 // lexical analysis
 t_token		*msh_lexical_analysis(char *input, t_env *env);
 // lexical analysis : expand input

@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_unset.c                                        :+:      :+:    :+:   */
+/*   msh_env_get_data.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:27:11 by haekang           #+#    #+#             */
-/*   Updated: 2023/10/14 19:59:43 by haekang          ###   ########.fr       */
+/*   Created: 2023/10/12 18:29:48 by jho               #+#    #+#             */
+/*   Updated: 2023/10/14 21:24:09 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static void	msh_del_node(t_env *node)
+t_env	*msh_env_get_node(t_env *env, char *key)
 {
-	free(node->key);
-	free(node->value);
-	node->next->prev = node->prev;
-	node->prev->next = node->next;
-	free(node);
+	while (env != NULL)
+	{
+		if (msh_strcmp(key, env->key) == 0)
+			return (env);
+		env = env->next;
+	}
+	return (NULL);
 }
 
-void	msh_unset(t_env *env, char *key)
+char	*msh_env_get_value(t_env *env, char *key)
 {
-	t_env	*node;
-
-	node = env;
-	while (1)
+	while (env != NULL)
 	{
-		if (node->next == NULL)
-		{
-			if (msh_strcmp(node->key, key) == 0)
-				msh_del_node(node);
-			break ;
-		}
-		else
-		{
-			if (msh_strcmp(node->key, key) == 0)
-				msh_del_node(node);
-		}
-		node = node->next;
+		if (msh_strcmp(key, env->key) == 0)
+			return (env->value);
+		env = env->next;
 	}
+	return (NULL);
 }

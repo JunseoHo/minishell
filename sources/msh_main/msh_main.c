@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   msh_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jho <jho@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:03:25 by jho               #+#    #+#             */
-/*   Updated: 2023/10/12 16:24:56 by jho              ###   ########.fr       */
+/*   Updated: 2023/10/14 22:18:00 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,21 @@ int	main(int argc, char *argv[], char *envp[])
 		write(2, "msh : failed to read environment.\n", 34);
 		return (1);
 	}
-	while (1)
-	{
-		input = readline("msh$> ");
-		tokens = msh_lexical_analysis(input, env);
-		free(input);
-	}
+	// char *arr[2];
+	// arr[0] = "cd";
+	// arr[1] = "..";
+	// msh_cd(arr, env);
+	// msh_cd(arr, env);
+	// printf("\n\n");
+	// msh_env(env);
+	// printf("\n\n");
+	// msh_pwd();
+
+	// while (1)
+	// {
+	// 	input = readline("msh$> ");
+	// 	tokens = msh_lexical_analysis(input, env);
+	// 	free(input);
+	// }
 	return (0);
 }

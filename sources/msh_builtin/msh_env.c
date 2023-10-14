@@ -6,17 +6,17 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:07:51 by haekang           #+#    #+#             */
-/*   Updated: 2023/10/10 21:34:57 by haekang          ###   ########.fr       */
+/*   Updated: 2023/10/14 19:12:38 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	msh_env(t_env *envp_list)
+void	msh_env(t_env *env)
 {
 	t_env	*node;
 
-	node = envp_list;
+	node = env;
 	while (1)
 	{
 		if (node->next == NULL)
