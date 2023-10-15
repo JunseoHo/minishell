@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   msh_cd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: haeseong <haeseong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:12:33 by haekang           #+#    #+#             */
-/*   Updated: 2023/10/14 22:29:18 by haekang          ###   ########.fr       */
+/*   Updated: 2023/10/15 23:42:41 by haeseong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,6 @@ static void	msh_pwd_oldpwd(t_env *env)
 	pwd->value = cur_path;
 }
 
-static void	msh_cd_home(t_env *env)
-{
-	char	*path;
-
-	path = msh_env_get_value(env, "HOME");
-	if (chdir(path))
-	{
-		printf("chdir error\n");
-		return ;
-	}
-	msh_pwd_oldpwd(env);
-}
-
 static void	msh_cd_env(t_env *env, char *key)
 {
 	char	*path;
@@ -62,7 +49,7 @@ void	msh_cd(char **cmd, t_env *env)
 	char	*path;
 
 	if (msh_strcmp(cmd[1], "~") == 0 || cmd[1] == NULL)
-		msh_cd_home(env);
+		msh_cd_env(env, "HOME");
 	else if (cmd[1][0] == '$')
 		msh_cd_env(env, &(cmd[1][1]));
 	else
@@ -76,3 +63,4 @@ void	msh_cd(char **cmd, t_env *env)
 		msh_pwd_oldpwd(env);
 	}
 }
+//cmd는 cd ~~
