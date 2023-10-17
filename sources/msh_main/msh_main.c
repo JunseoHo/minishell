@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:03:25 by jho               #+#    #+#             */
-/*   Updated: 2023/10/16 22:21:40 by haekang          ###   ########.fr       */
+/*   Updated: 2023/10/17 21:13:25 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,8 @@ int	main(int argc, char *argv[], char *envp[])
 		write(2, "msh : failed to read environment.\n", 34);
 		return (1);
 	}
-	char **cmd;
-	cmd = malloc(sizeof(char *) * 4);
-	cmd[0] = "echo";
-	cmd[1] = "fuck";
-	cmd[2] = "you";
-	cmd[3] = "man";
-	msh_echo(cmd);
-	free(cmd);
+	msh_unset(env, "TERM_PROGRAM");//릭난다
+	msh_env(env);
 	exit(0);
 	// while (1)
 	// {
