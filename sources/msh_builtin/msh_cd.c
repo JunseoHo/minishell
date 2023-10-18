@@ -6,7 +6,7 @@
 /*   By: haeseong <haeseong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:12:33 by haekang           #+#    #+#             */
-/*   Updated: 2023/10/15 23:42:41 by haeseong         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:07:47 by haeseong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	msh_pwd_oldpwd(t_env *env)
 	t_env	*old_pwd;
 	char	*cur_path;
 
+	printf("어디고\n");
 	pwd = msh_env_get_node(env, "PWD");
 	old_pwd = msh_env_get_node(env, "OLDPWD");
 	cur_path = getcwd(NULL, 0);
@@ -63,4 +64,5 @@ void	msh_cd(char **cmd, t_env *env)
 		msh_pwd_oldpwd(env);
 	}
 }
-//cmd는 cd ~~
+//없는 경로가 들어올 경우 에러 처리 해줘야함, 명령어 반환값 구현해야함
+//환경변수에 홈 삭제됐을때 에러처리 해야함

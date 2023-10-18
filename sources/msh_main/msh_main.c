@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   msh_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: haeseong <haeseong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:03:25 by jho               #+#    #+#             */
-/*   Updated: 2023/10/17 21:13:25 by haekang          ###   ########.fr       */
+/*   Updated: 2023/10/18 18:04:44 by haeseong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	leaks(void)
 {
-	system("leaks minishell");
+	system("leaks minishell | grep leaked");
 }
 
 int	main(int argc, char *argv[], char *envp[])
@@ -32,8 +32,13 @@ int	main(int argc, char *argv[], char *envp[])
 		write(2, "msh : failed to read environment.\n", 34);
 		return (1);
 	}
-	msh_unset(env, "TERM_PROGRAM");//릭난다
-	msh_env(env);
+	// msh_unset(env, "9awefce");
+	// msh_env(env);
+	// msh_pwd();
+	char *arr[2];
+	arr[0] = "cd";
+	arr[1] = "$HOME";//세그뜸
+	msh_cd(arr, env);
 	exit(0);
 	// while (1)
 	// {
