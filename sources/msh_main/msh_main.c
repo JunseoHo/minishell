@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   msh_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haeseong <haeseong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 12:03:25 by jho               #+#    #+#             */
-/*   Updated: 2023/10/18 18:04:44 by haeseong         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:54:01 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ int	main(int argc, char *argv[], char *envp[])
 	// msh_pwd();
 	char *arr[2];
 	arr[0] = "cd";
-	arr[1] = "$HOME";//세그뜸
+	arr[1] = "";//세그뜸
+	msh_env(env);
+	printf("\n\n\n\n");
 	msh_cd(arr, env);
+	msh_env(env);
 	exit(0);
 	// while (1)
 	// {
