@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:14:44 by haekang           #+#    #+#             */
-/*   Updated: 2023/11/29 16:15:50 by haekang          ###   ########.fr       */
+/*   Updated: 2023/11/29 20:53:30 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	msh_builtin_cd_chdir(char *path, char *old_pwd, int pipe)
 		printf("minishell: cd: %s: No such file or directory\n", path);
 		g_exit_status = 1;
 		if (pipe == 1)
-			exit (g_exit_status);
+			exit(g_exit_status);
 		return (0);
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 09:58:12 by jho               #+#    #+#             */
-/*   Updated: 2023/11/14 14:39:42 by haekang          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:45:52 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*msh_expand(char *s, t_env *env)
 	t_token	*tokens;
 	char	*expanded;
 
+	if (s == NULL)
+		return (NULL);
 	tokens = msh_vqoutes(s);
 	if (tokens == NULL)
 		return (NULL);

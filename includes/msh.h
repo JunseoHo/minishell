@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:29:19 by jho               #+#    #+#             */
-/*   Updated: 2023/11/29 15:51:54 by jho              ###   ########.fr       */
+/*   Updated: 2023/11/30 17:13:44 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@
 
 int		g_exit_status;
 
+
+
+void	do_sigint(int signum);
+void	set_terminal_print_off(void);
+void	set_terminal_print_on(void);
+void	set_default_signal(void);
+void	set_signal(void);
+void	handle_signal_2(int signo);
 #endif

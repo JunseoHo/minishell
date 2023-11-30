@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   msh_execute_first.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jho <jho@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:24:03 by jho               #+#    #+#             */
-/*   Updated: 2023/11/30 16:30:51 by jho              ###   ########.fr       */
+/*   Updated: 2023/11/30 17:47:50 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	msh_execute_first(t_pipeline *pl, int *fd, t_env *env, int forked)
 		return (-1);
 	if (pid == 0)
 	{
-		if (fd[0] != 0 && close(fd[0]) == -1)
+    if (fd[0] != 0 && close(fd[0]) == -1)
 			return (-1);
 		msh_execute_first_child(pl, local_fd, env, forked);
 	}
